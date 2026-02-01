@@ -29,12 +29,17 @@ export default defineConfig({
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url))
     },
+       // 关键：添加.vue扩展名到自动解析列表
+      extensions: ['.vue', '.ts', '.js']
   },
   css: {
     preprocessorOptions: {
       scss: {
         // 导入自定义SCSS变量文件
-        additionalData: `@use "@/styles/element/index.scss" as *;\n`,
+        additionalData: `@use "@/styles/element/index.scss" as *;\n
+        @use "@/styles/var.scss" as *;\n
+        `,
+
         // 补3：开启JS兼容（避免部分SCSS语法报错）
         javascriptEnabled: true,
       },

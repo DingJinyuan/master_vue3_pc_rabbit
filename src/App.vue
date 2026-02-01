@@ -8,7 +8,13 @@ import { RouterView } from 'vue-router';
 
 <template>
   <!-- <TestButton /> -->
+     <div class="test">test scss</div>
   <RouterView/>
+
 </template>
 
-<style scoped></style>
+<style scoped lang="scss">
+.test{
+  color:$priceColor,
+}
+</style>
