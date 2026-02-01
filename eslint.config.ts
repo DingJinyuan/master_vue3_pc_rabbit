@@ -11,7 +11,7 @@ import pluginOxlint from 'eslint-plugin-oxlint'
 export default defineConfigWithVueTs(
   {
     name: 'app/files-to-lint',
-    files: ['**/*.{vue,ts,mts,tsx}'],
+    files: ['**/*.{vue,ts,mts,tsx,js}'],
     rules: {
       // 关闭组件名多单词校验
       'vue/multi-word-component-names': 0,
