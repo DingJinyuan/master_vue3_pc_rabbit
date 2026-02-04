@@ -5,6 +5,8 @@ import Login from '@/views/Login'
 import Layout from '@/views/Layout'
 import Home from '@/views/Home'
 import Category from '@/views/Category'
+import SubCategory from '@/views/SubCategory'
+import Detail  from '@/views/Detail'
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   // path和component对应关系的位置
@@ -17,14 +19,26 @@ const router = createRouter({
         path: '',
       component: Home,
       },{
-        path: 'category',
+        path: 'category/:id',
       component: Category,
+      },{
+        path: 'category/sub/:id',
+      component: SubCategory,
+      },{
+        path:'detail/:id',
+        component:Detail,
       }]
     }, {
       path: '/login',
       component: Login,
     }
   ],
+  //路由行为配置项--滚动行为定制
+  scrollBehavior(){
+    return {
+      top:0
+    }
+  }
 })
 
 export default router
