@@ -11,9 +11,11 @@
     defineProps({
         goods:{
             type:Object,
-            default:()=>{   }
+            default:()=>({   })
         }
     })
+    
+    
 </script>
     
 <style langs="scss">

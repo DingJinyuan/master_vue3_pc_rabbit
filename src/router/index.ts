@@ -6,7 +6,15 @@ import Layout from '@/views/Layout'
 import Home from '@/views/Home'
 import Category from '@/views/Category'
 import SubCategory from '@/views/SubCategory'
-import Detail  from '@/views/Detail'
+import Detail from '@/views/Detail'
+import CartList from '@/views/CartList'
+import Checkout from '@/views/Checkout'
+import Pay from '@/views/Pay'
+import Payback from '@/views/Pay/Payback.vue'
+import Member from '@/views/Member'
+import MemberInfo from '@/views/Member/components/UserInfo.vue'
+import MemberOrder from '@/views/Member/components/UserOrder.vue'
+
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   // path和component对应关系的位置
@@ -14,19 +22,44 @@ const router = createRouter({
     {
       path: '/',
       component: Layout,
-      children:[{
+      children: [{
         //path: ''：子路由的默认路径（匹配 /），渲染 Home 组件 → 访问 / 时，显示 Layout + Home。
         path: '',
-      component: Home,
-      },{
+        component: Home,
+      }, {
         path: 'category/:id',
-      component: Category,
-      },{
+        component: Category,
+      }, {
         path: 'category/sub/:id',
-      component: SubCategory,
-      },{
-        path:'detail/:id',
-        component:Detail,
+        component: SubCategory,
+      }, {
+        path: 'detail/:id',
+        component: Detail,
+      }, {
+        path: 'cartlist',
+        component: CartList,
+      }, {
+        path: 'checkout',
+        component: Checkout,
+      }, {
+        path: 'pay',
+        component: Pay,
+      }, {
+        path: 'paycallback',
+        component: Payback,
+      }, {
+        path: 'member',
+        component: Member,
+        children: [
+          {
+            path: '',
+            component: MemberInfo
+          },
+          {
+            path: 'order',
+            component: MemberOrder
+          }
+        ],
       }]
     }, {
       path: '/login',
@@ -34,9 +67,9 @@ const router = createRouter({
     }
   ],
   //路由行为配置项--滚动行为定制
-  scrollBehavior(){
+  scrollBehavior() {
     return {
-      top:0
+      top: 0
     }
   }
 })

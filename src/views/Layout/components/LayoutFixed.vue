@@ -1,7 +1,7 @@
 <script setup lang="ts">
 //是实时获取浏览器窗口的滚动 Y 轴坐标（y）
 import { useScroll } from '@vueuse/core'
-import {useCategoryStore} from '@/stores/category'
+import {useCategoryStore} from '@/stores/categoryStore'
 
 const { y } = useScroll(window)
 
